@@ -6,5 +6,6 @@ beforeEach(() => {
 })
 
   test('User can input a secret word', () =>{
-    expect(game1.setSecretWord("FIRST")).toBe("FIRST")
+    game1.setSecretWord("first");
+    expect(game1.secretWord).toBe("FIRST");
 });
