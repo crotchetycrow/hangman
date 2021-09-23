@@ -1,7 +1,7 @@
 class Hangman {
   constructor() {
     this.secretWord = "";
-    this.guesses = 0;
+    this.numberOfGuesses = 0;
     this.isInProgress = false;
   }
   
@@ -9,12 +9,16 @@ class Hangman {
     this.secretWord = word.toUpperCase();
   }
 
-  setGuesses(numberOfGuesses) {
-    this.guesses = numberOfGuesses
+  setGuesses(number) {
+    this.numberOfGuesses = number;
   }
 
   startGame() {
     this.isInProgress = true;
+  }
+
+  guessLetter(letter) {
+    return letter;
   }
 };
 

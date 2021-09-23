@@ -12,10 +12,14 @@ beforeEach(() => {
 
 test('Users can set incorrect number of guesses', () => {
   game1.setGuesses(3);
-  expect(game1.guesses).toBe(3);
+  expect(game1.numberOfGuesses).toBe(3);
 });
 
 test('Can check if a game is in progress', () => {
   game1.startGame()
   expect(game1.isInProgress).toBe(true);
+});
+
+test('Users can guess a letter', () => {
+  expect(game1.guessLetter("L")).toBe("L");
 });
