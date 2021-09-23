@@ -1,0 +1,1 @@
+const Hangman = require('../main/hangman')
