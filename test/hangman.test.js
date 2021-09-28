@@ -29,3 +29,9 @@ test('Users get error if inputting something that isn not a letter', () => {
     game1.guessLetter('/');
   }).toThrow("Invalid input; please enter a letter.");
 });
+
+test('Users get error if inputting more than one character', () => {
+  expect(() => {
+    game1.guessLetter('pb');
+  }).toThrow("Invalid input; please enter a single character.");
+});

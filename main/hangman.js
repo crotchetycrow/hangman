@@ -19,12 +19,13 @@ class Hangman {
 
   guessLetter(letter) {
     const regex = /[A-Z]/i;
-    if (regex.test(letter)) {
+    if (regex.test(letter) && letter.length == 1) {
       return letter;
+    } else if (letter.length != 1) {
+      throw "Invalid input; please enter a single character.";
     } else {
       throw "Invalid input; please enter a letter.";
     };
-    
   }
 };
 
