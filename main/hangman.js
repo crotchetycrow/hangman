@@ -18,9 +18,14 @@ class Hangman {
   }
 
   guessLetter(letter) {
-    return letter;
+    const regex = /[A-Z]/i;
+    if (regex.test(letter)) {
+      return letter;
+    } else {
+      throw "Invalid input; please enter a letter.";
+    };
+    
   }
 };
-
 
 module.exports = Hangman;
