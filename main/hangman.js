@@ -3,6 +3,7 @@ class Hangman {
     this.secretWord = "";
     this.numberOfGuesses = 0;
     this.isInProgress = false;
+    this.incorrectGuesses = [];
   }
   
   setSecretWord(word) {
@@ -17,15 +18,34 @@ class Hangman {
     this.isInProgress = true;
   }
 
-  guessLetter(letter) {
-    const regex = /[A-Z]/i;
-    if (regex.test(letter) && letter.length == 1) {
-      return letter;
-    } else if (letter.length != 1) {
+  letterLengthError(letter) {
+    if(letter.length != 1){
       throw "Invalid input; please enter a single character.";
-    } else {
+    }
+  }
+
+  invalidInput(letter){
+    const regex = /[A-Z]/i;
+    if (!regex.test(letter)){
       throw "Invalid input; please enter a letter.";
-    };
+    }
+  }
+
+  checkGuess(letter) {
+    const arr = this.secretWord.split('')
+
+    if (arr.find(element => element != letter)) {
+      this.incorrectGuesses.push(letter);
+    } else {
+      return letter;
+    }
+  }
+
+  guessLetter(letter) {
+    this.invalidInput(letter);
+    this.letterLengthError(letter);
+    this.checkGuess(letter);
+    return letter
   }
 };
 

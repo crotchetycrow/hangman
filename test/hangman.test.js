@@ -35,3 +35,9 @@ test('Users get error if inputting more than one character', () => {
     game1.guessLetter('pb');
   }).toThrow("Invalid input; please enter a single character.");
 });
+
+test('If the letter is incorrect, adds that letter to incorrect guesses', () => {
+  game1.setSecretWord('DOG');
+  game1.guessLetter('L')
+  expect(game1.incorrectGuesses).toContain('L');
+})
