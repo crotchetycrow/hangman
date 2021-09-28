@@ -23,3 +23,9 @@ test('Can check if a game is in progress', () => {
 test('Users can guess a letter', () => {
   expect(game1.guessLetter("L")).toBe("L");
 });
+
+test('Users get error if inputting something that isn not a letter', () => {
+  expect(() => {
+    game1.guessLetter('/');
+  }).toThrow("Invalid input; please enter a letter.");
+});
