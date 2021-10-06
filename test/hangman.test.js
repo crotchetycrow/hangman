@@ -77,5 +77,20 @@ describe('When a game has been started', () => {
       game1.guessLetter('G');
       expect(game1.isInProgress).toBe(false);
     });
+
+    test('If all letters in secret word have been guessed out of order, game is no longer in progress', () => {
+      game1.guessLetter('O');
+      game1.guessLetter('D');
+      game1.guessLetter('G');
+      expect(game1.isInProgress).toBe(false);
+    });
   });
 })
+
+
+const times = x => f => {
+  if (x > 0) {
+    f()
+    times (x - 1) (f)
+  }
+}

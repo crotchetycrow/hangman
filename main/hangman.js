@@ -34,6 +34,7 @@ class Hangman {
 
   checkGuess(letter) {
     const arr = this.secretWord.split('')
+    letter = letter.toUpperCase()
 
     if (this.incorrectGuesses.find(element => element == letter)
     || this.correctGuesses.find(element => element == letter)) {
@@ -48,10 +49,20 @@ class Hangman {
    }
   }
 
+  gameWon() {
+    const correctWord = this.correctGuesses.sort().join('');
+    const alphaWord = Array.from(this.secretWord).sort().join('');
+    
+    if (correctWord == alphaWord) {
+      this.isInProgress = false;
+    };
+  }
+
   guessLetter(letter) {
     this.invalidInput(letter);
     this.letterLengthError(letter);
     this.checkGuess(letter);
+    this.gameWon();
     return letter
   }
 };
