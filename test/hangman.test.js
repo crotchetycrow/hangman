@@ -57,6 +57,11 @@ describe('When a game has been started', () => {
       expect(game1.incorrectGuesses).not.toContain('D');
     });
   
+    test('Even if the guessed in lower case, if the letter is correct, doesn`t add that letter to incorrect guesses', () => {
+      game1.guessLetter('d')
+      expect(game1.incorrectGuesses).not.toContain('d');
+    });
+  
     test('If the letter has already been incorrectly guessed, throw error', () => {
       expect(() => {
         game1.guessLetter('L');
@@ -82,13 +87,6 @@ describe('When a game has been started', () => {
       game1.guessLetter('O');
       game1.guessLetter('D');
       game1.guessLetter('G');
-      expect(game1.isInProgress).toBe(false);
-    });
-
-    test('If all letters in secret word have been guessed in lowercase, game is no longer in progress', () => {
-      game1.guessLetter('o');
-      game1.guessLetter('d');
-      game1.guessLetter('g');
       expect(game1.isInProgress).toBe(false);
     });
   });
