@@ -4,6 +4,7 @@ class Hangman {
     this.numberOfGuesses = 0;
     this.isInProgress = false;
     this.incorrectGuesses = [];
+    this.correctGuesses = [];
   }
   
   setSecretWord(word) {
@@ -34,11 +35,13 @@ class Hangman {
   checkGuess(letter) {
     const arr = this.secretWord.split('')
 
-    if (this.incorrectGuesses.find(element => element == letter)) {
+    if (this.incorrectGuesses.find(element => element == letter)
+    || this.correctGuesses.find(element => element == letter)) {
       throw "You've already guessed that. Please guess again." 
     }
 
     if (arr.find(element => element == letter)) {
+      this.correctGuesses.push(letter);
       return letter;
     } else {
       this.incorrectGuesses.push(letter); 

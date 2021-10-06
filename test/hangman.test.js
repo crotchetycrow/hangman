@@ -53,9 +53,16 @@ describe('when guessing letters', () => {
     expect(game1.incorrectGuesses).not.toContain('D');
   });
 
-  test('If the letter has already been guessed, throw error', () => {
+  test('If the letter has already been incorrectly guessed, throw error', () => {
     expect(() => {
       game1.guessLetter('L');
+    }).toThrow("You've already guessed that. Please guess again.")
+  });
+
+  test('If the letter has already been correctly guessed, throw error', () => {
+    expect(() => {
+      game1.guessLetter('D');
+      game1.guessLetter('D');
     }).toThrow("You've already guessed that. Please guess again.")
   });
 });
