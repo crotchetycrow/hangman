@@ -34,11 +34,12 @@ class Hangman {
   checkGuess(letter) {
     const arr = this.secretWord.split('')
 
-    if (arr.find(element => element != letter)) {
-      this.incorrectGuesses.push(letter);
-    } else {
+    if (arr.find(element => element == letter)) {
       return letter;
+    } else {
+      this.incorrectGuesses.push(letter);
     }
+    console.log(this.incorrectGuesses)
   }
 
   guessLetter(letter) {

@@ -40,4 +40,10 @@ test('If the letter is incorrect, adds that letter to incorrect guesses', () => 
   game1.setSecretWord('DOG');
   game1.guessLetter('L')
   expect(game1.incorrectGuesses).toContain('L');
-})
+});
+
+test('If the letter is correct, doesn`t add that letter to incorrect guesses', () => {
+  game1.setSecretWord('DOG');
+  game1.guessLetter('D')
+  expect(game1.incorrectGuesses).not.toContain('D');
+});
