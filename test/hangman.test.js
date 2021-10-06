@@ -89,6 +89,16 @@ describe('When a game has been started', () => {
       game1.guessLetter('G');
       expect(game1.isInProgress).toBe(false);
     });
+
+    test('Recognises that all letters have been guessed when the secret word has duplicate letters', () => {
+      game1.setSecretWord("Riddle");
+      game1.guessLetter('R');
+      game1.guessLetter('I');
+      game1.guessLetter('D');
+      game1.guessLetter('L');
+      game1.guessLetter('E');
+      expect(game1.isInProgress).toBe(false);
+    });
   });
 })
 

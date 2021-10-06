@@ -51,7 +51,11 @@ class Hangman {
 
   gameWon() {
     const correctWord = this.correctGuesses.sort().join('');
-    const alphaWord = Array.from(this.secretWord).sort().join('');
+    let alphaWord = Array.from(this.secretWord).sort();
+    // Turn the array into a Set (a type of object that takes an array and removes any duplicate values)
+    alphaWord = new Set(alphaWord);
+    // Turn the Set back into an Array so that it can be joined:
+    alphaWord = [...alphaWord].join('');
 
     if (correctWord == alphaWord) {
       this.isInProgress = false;
