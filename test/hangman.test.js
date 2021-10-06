@@ -36,14 +36,26 @@ test('Users get error if inputting more than one character', () => {
   }).toThrow("Invalid input; please enter a single character.");
 });
 
-test('If the letter is incorrect, adds that letter to incorrect guesses', () => {
-  game1.setSecretWord('DOG');
-  game1.guessLetter('L')
-  expect(game1.incorrectGuesses).toContain('L');
-});
+describe('when guessing letters', () => {
 
-test('If the letter is correct, doesn`t add that letter to incorrect guesses', () => {
-  game1.setSecretWord('DOG');
-  game1.guessLetter('D')
-  expect(game1.incorrectGuesses).not.toContain('D');
+  beforeEach(() => {
+    game1 = new Hangman;
+    game1.setSecretWord("DOG");
+    game1.guessLetter('L');
+  });
+
+  test('If the letter is incorrect, adds that letter to incorrect guesses', () => {
+    expect(game1.incorrectGuesses).toContain('L');
+  });
+
+  test('If the letter is correct, doesn`t add that letter to incorrect guesses', () => {
+    game1.guessLetter('D')
+    expect(game1.incorrectGuesses).not.toContain('D');
+  });
+
+  test('If the letter has already been guessed, throw error', () => {
+    expect(() => {
+      game1.guessLetter('L');
+    }).toThrow("You've already guessed that. Please guess again.")
+  });
 });
