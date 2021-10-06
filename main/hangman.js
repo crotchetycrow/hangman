@@ -52,7 +52,7 @@ class Hangman {
   gameWon() {
     const correctWord = this.correctGuesses.sort().join('');
     const alphaWord = Array.from(this.secretWord).sort().join('');
-    
+
     if (correctWord == alphaWord) {
       this.isInProgress = false;
     };

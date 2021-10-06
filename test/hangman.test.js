@@ -84,6 +84,13 @@ describe('When a game has been started', () => {
       game1.guessLetter('G');
       expect(game1.isInProgress).toBe(false);
     });
+
+    test('If all letters in secret word have been guessed in lowercase, game is no longer in progress', () => {
+      game1.guessLetter('o');
+      game1.guessLetter('d');
+      game1.guessLetter('g');
+      expect(game1.isInProgress).toBe(false);
+    });
   });
 })
 
