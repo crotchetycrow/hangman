@@ -56,7 +56,7 @@ class Hangman {
     alphaWord = new Set(alphaWord);
     // Turn the Set back into an Array so that it can be joined:
     alphaWord = [...alphaWord].join('');
-
+   
     if (correctWord == alphaWord) {
       this.isInProgress = false;
       return true;
@@ -68,7 +68,7 @@ class Hangman {
   }
 
   gameLost() {
-    if (this.numberOfGuesses >= this.incorrectGuesses.length) {
+    if (this.numberOfGuesses <= this.incorrectGuesses.length) {
       this.isInProgress = false;
       return true;
     }
@@ -80,6 +80,10 @@ class Hangman {
 
 
   guessLetter(letter) {
+    if (this.isInProgress == false){
+      throw "You can't guess a letter now!"
+    }
+  
     this.invalidInput(letter);
     this.letterLengthError(letter);
     this.checkGuess(letter);
@@ -89,9 +93,6 @@ class Hangman {
     } else if (this.gameLost()) {
       return this.loseMessage();
     }
-    // else {
-    //   return letter
-    // }
   }
 };
 
