@@ -106,13 +106,30 @@ describe('When a game has been started', () => {
   
       expect(game1.guessLetter('G')).toEqual('Congratulations! You won!');
     })
+
+    test('If the number of incorrect guesses is equal to number of guesses assigned, the game is no longer in progress', () => {
+      game1.guessLetter('a');
+      game1.guessLetter('b');
+      game1.guessLetter('c');
+      game1.guessLetter('e');
+      game1.guessLetter('f');
+      expect(game1.isInProgress).toBe(false);
+    })
+
+    test('When a player has run out of guesses, return a lose message', () => {
+      game1.guessLetter('a');
+      game1.guessLetter('b');
+      game1.guessLetter('c');
+      game1.guessLetter('e');
+      expect(game1.guessLetter('f')).toEqual("You've run out of guesses - better luck next time!");
+    })
   });
 })
 
 
-const times = x => f => {
-  if (x > 0) {
-    f()
-    times (x - 1) (f)
-  }
-}
+// const times = x => f => {
+//   if (x > 0) {
+//     f()
+//     times (x - 1) (f)
+//   }
+// }

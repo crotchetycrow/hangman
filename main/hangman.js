@@ -67,6 +67,17 @@ class Hangman {
     return "Congratulations! You won!"
   }
 
+  gameLost() {
+    if (this.numberOfGuesses >= this.incorrectGuesses.length) {
+      this.isInProgress = false;
+      return true;
+    }
+  }
+
+  loseMessage() {
+    return "You've run out of guesses - better luck next time!";
+  }
+
 
   guessLetter(letter) {
     this.invalidInput(letter);
@@ -75,7 +86,9 @@ class Hangman {
     
     if(this.gameWon()) {
       return this.winMessage();
-    } 
+    } else if (this.gameLost()) {
+      return this.loseMessage();
+    }
     // else {
     //   return letter
     // }
