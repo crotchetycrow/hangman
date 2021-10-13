@@ -43,9 +43,9 @@ describe('When a game has been started', () => {
   
   describe('When guessing letters', () => {
   
-    test('Users can guess a letter', () => {
-      expect(game1.guessLetter("S")).toBe("S");
-    });
+    // test('Users can guess a letter', () => {
+    //   expect(game1.guessLetter("S")).toBe("S");
+    // });
   
     test('If the letter is incorrect, adds that letter to incorrect guesses', () => {
       game1.guessLetter('L');
@@ -99,6 +99,13 @@ describe('When a game has been started', () => {
       game1.guessLetter('E');
       expect(game1.isInProgress).toBe(false);
     });
+
+    test('Once a game has been won, return a win message', () => {
+      game1.guessLetter('O');
+      game1.guessLetter('D');
+  
+      expect(game1.guessLetter('G')).toEqual('Congratulations! You won!');
+    })
   });
 })
 

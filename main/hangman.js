@@ -59,15 +59,26 @@ class Hangman {
 
     if (correctWord == alphaWord) {
       this.isInProgress = false;
+      return true;
     };
   }
+
+  winMessage() {
+    return "Congratulations! You won!"
+  }
+
 
   guessLetter(letter) {
     this.invalidInput(letter);
     this.letterLengthError(letter);
     this.checkGuess(letter);
-    this.gameWon();
-    return letter
+    
+    if(this.gameWon()) {
+      return this.winMessage();
+    } 
+    // else {
+    //   return letter
+    // }
   }
 };
 
