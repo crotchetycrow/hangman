@@ -8,9 +8,10 @@ class Hangman {
   }
   
   setSecretWord(word) {
+    const numRegex = /\d/;
     if(this.isInProgress == true) {
       throw "You cannot set a word whilst the game is in progress!"
-    } else if(word == "" || word == ) {
+    } else if(word == "" || numRegex.test(word)) {
       throw "Please enter a word"
     }
 

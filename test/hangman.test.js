@@ -23,7 +23,13 @@ test('User cannot set an empty string as a secret word', () => {
   }).toThrow("Please enter a word")
 });
 
-test('User cannot set an empty string as a secret word', () => {
+test('User cannot set a number string as a secret word', () => {
+  expect(() => {
+    game1.setSecretWord("9");
+  }).toThrow("Please enter a word")
+});
+
+test('User cannot set a number as a secret word', () => {
   expect(() => {
     game1.setSecretWord(9);
   }).toThrow("Please enter a word")
