@@ -19,6 +19,9 @@ class Hangman {
   }
 
   setGuesses(number) {
+    if (this.isInProgress) {
+      throw "You cannot set the number of guesses whilst the game is in progress!";
+    }
     this.numberOfGuesses = number;
   }
 

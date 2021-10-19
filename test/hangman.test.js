@@ -40,6 +40,13 @@ test('Users can set incorrect number of guesses', () => {
   expect(game1.numberOfGuesses).toBe(3);
 });
 
+test('User cannot set number of guesses whilst a game is in progress', () => {
+  expect(() => {
+    game1.startGame();
+    game1.setGuesses(5);
+  }).toThrow("You cannot set the number of guesses whilst the game is in progress!")
+});
+
 test('Can check if a game is in progress', () => {
   game1.startGame()
   expect(game1.isInProgress).toBe(true);
