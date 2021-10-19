@@ -9,11 +9,13 @@
   <script src= "hangman.js"></script>
   <h1>Hangman, the video game</h1>
 
-  <input type="password"> Enter your secret word! </input>
-  <select>
-    <option>Easy (10)</option>
-    <option>Normal (5)</option>
-    <option>Hard (3)</option>
+  <label for="secret-word">Enter your secret word:</label>
+  <input type="password" id="secret-word" placeholder="Secret Word">
+  <label for="number-of-guesses">Choose number of guesses:</label>
+  <select id="number-of-guesses">
+    <option value=10>Easy (10)</option>
+    <option value=5>Normal (5)</option>
+    <option value=3>Hard (3)</option>
   </select>
 
   <button type="button">Start game!</button>
