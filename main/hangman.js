@@ -8,7 +8,11 @@ class Hangman {
   }
   
   setSecretWord(word) {
-    this.secretWord = word.toUpperCase();
+    if(this.isInProgress == true) {
+      throw "You cannot set a word whilst the game is in progress!"
+    }
+    
+    this.secretWord = word.toUpperCase();  
   }
 
   setGuesses(number) {

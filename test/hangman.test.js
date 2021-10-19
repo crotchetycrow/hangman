@@ -3,11 +3,18 @@ const Hangman = require('../main/hangman');
 
 beforeEach(() => {
   game1 = new Hangman();
-})
+});
 
 test('User can input a secret word', () => {
   game1.setSecretWord("first");
   expect(game1.secretWord).toBe("FIRST");
+});
+
+test('User cannot set a secret word whilst a game is in progress', () => {
+  expect(() => {
+    game1.startGame();
+    game1.setSecretWord("first");
+  }).toThrow("You cannot set a word whilst the game is in progress!")
 });
 
 test('Users can set incorrect number of guesses', () => {
@@ -101,7 +108,9 @@ describe('When guessing letters', () => {
   });
 
   test('Recognises that all letters have been guessed when the secret word has duplicate letters', () => {
+    game1.isInProgress = false;
     game1.setSecretWord("Riddle");
+    game1.startGame();
     game1.guessLetter('R');
     game1.guessLetter('I');
     game1.guessLetter('D');
