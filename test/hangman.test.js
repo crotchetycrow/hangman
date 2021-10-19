@@ -17,6 +17,18 @@ test('User cannot set a secret word whilst a game is in progress', () => {
   }).toThrow("You cannot set a word whilst the game is in progress!")
 });
 
+test('User cannot set an empty string as a secret word', () => {
+  expect(() => {
+    game1.setSecretWord("");
+  }).toThrow("Please enter a word")
+});
+
+test('User cannot set an empty string as a secret word', () => {
+  expect(() => {
+    game1.setSecretWord(9);
+  }).toThrow("Please enter a word")
+});
+
 test('Users can set incorrect number of guesses', () => {
   game1.setGuesses(3);
   expect(game1.numberOfGuesses).toBe(3);

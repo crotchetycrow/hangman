@@ -10,8 +10,10 @@ class Hangman {
   setSecretWord(word) {
     if(this.isInProgress == true) {
       throw "You cannot set a word whilst the game is in progress!"
+    } else if(word == "" || word == ) {
+      throw "Please enter a word"
     }
-    
+
     this.secretWord = word.toUpperCase();  
   }
 
