@@ -19,8 +19,11 @@ class Hangman {
   }
 
   setGuesses(number) {
+    const nonNumRegex = /\D/;
     if (this.isInProgress) {
       throw "You cannot set the number of guesses whilst the game is in progress!";
+    } else if (nonNumRegex.test(number)) {
+      throw "Please enter a number";
     }
     this.numberOfGuesses = number;
   }

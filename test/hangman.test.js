@@ -35,9 +35,21 @@ test('User cannot set a number as a secret word', () => {
   }).toThrow("Please enter a word")
 });
 
-test('Users can set incorrect number of guesses', () => {
+test('Users can set number of incorrect guesses', () => {
   game1.setGuesses(3);
   expect(game1.numberOfGuesses).toBe(3);
+});
+
+test('Set guesses cannot contain anything other than numbers', () => {
+  expect(() => {
+    game1.setGuesses('banana');
+  }).toThrow("Please enter a number");
+});
+
+test('Set guesses cannot contain anything other than numbers', () => {
+  expect(() => {
+    game1.setGuesses('9-5');
+  }).toThrow("Please enter a number");
 });
 
 test('User cannot set number of guesses whilst a game is in progress', () => {
