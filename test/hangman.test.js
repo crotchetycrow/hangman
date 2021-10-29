@@ -1,4 +1,3 @@
-
 const Hangman = require('../main/hangman');
 
 beforeEach(() => {

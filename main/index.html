@@ -7,10 +7,8 @@
   <title>Hangman!</title>
 </head>
   <link rel="stylesheet" href="style.css">
-  <script src= "hangman.js"></script>
-  <script src= "app.js"></script>
   <h1>Hangman, the video game</h1>
-
+  
   <label for="secret-word">Enter your secret word:</label>
   <input type="password" id="secret-word" placeholder="Secret Word">
   <label for="number-of-guesses">Choose number of guesses:</label>
@@ -19,9 +17,11 @@
     <option value=5>Normal (5)</option>
     <option value=3>Hard (3)</option>
   </select>
-
-  <button type="button">Start game!</button>
+  
+  <button type="button" id="startingButton">Start game!</button>
   <img src="img/Screenshot 2021-10-19 at 15.56.59.png">
-
+  
+  <script src= "hangman.js"></script>
+  <script src= "app.js"></script>
 </body>
 </html>

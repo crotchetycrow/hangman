@@ -1,3 +1,4 @@
+
 class Hangman {
   constructor() {
     this.secretWord = "";
