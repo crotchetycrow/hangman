@@ -1,5 +1,4 @@
-
-class Hangman {
+export default class Hangman {
   constructor() {
     this.secretWord = "";
     this.numberOfGuesses = 0;
@@ -109,5 +108,3 @@ class Hangman {
     }
   }
 };
-
-module.exports = Hangman;

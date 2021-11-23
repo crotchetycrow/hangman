@@ -1,4 +1,6 @@
-const Hangman = require('../main/hangman');
+import Hangman from '../main/hangman';
+
+let game1;
 
 beforeEach(() => {
   game1 = new Hangman();
